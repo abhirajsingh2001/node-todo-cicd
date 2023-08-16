@@ -2,6 +2,6 @@ version: '3.3'
 
 services:
   web:
-    image:  abhiraj2001/node-app-todo-cicd:latest
+    image:  "abhiraj2001/node-todo-app-cicd:latest"
     ports:
       - "8000:8000"
