@@ -2,6 +2,6 @@ version: '3.3'
 
 services:
   web:
-    build: .
+    image:  abhiraj2001/node-todo:latest
     ports:
       - "8000:8000"
