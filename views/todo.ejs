@@ -9,14 +9,11 @@
                 text-decoration: none;
                 color: black;
             }
-             .text{
-                 text-align: center;
-            }
         </style>
     </head>
 
     <body>
-        <h1 classname="text">Batch 4</h1>
+        <h1 style ="text-align: center">Batch 4</h1>
         <ul>
             <% todolist.forEach(function(todo, index) { %>
             <li>
@@ -28,7 +25,7 @@
         </ul>
 
         <form action="/todo/add/" method="post">
-            <p>
+            <p  style ="text-align: center">
                 <label for="newtodo">My Tasks:</label>
                 <input type="text" name="newtodo" id="newtodo" autofocus />
                 <input type="submit" value="Add" />
