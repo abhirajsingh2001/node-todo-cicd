@@ -8,15 +8,15 @@ pipeline {
         }
         stage("Build and Test"){
             steps{
-                sh "docker build . -t node_todo_app_cicd:latest"
+                sh "docker build . -t node-todo-app-cicd:v1"
             }
         }
         stage("Push to Docker Hub"){
             steps{
                 withCredentials([usernamePassword(credentialsId:"dockerHub",passwordVariable:"dockerHubPass",usernameVariable:"dockerHubUser")]){
-                 sh "docker tag node-app-test-new ${env.dockerHubUser}/node_todo_app_cicd:latest"
+                 sh "docker tag node-app-test-new ${env.dockerHubUser}/node-todo-app-cicd:v1"
                 sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
-                sh "docker push ${env.dockerHubUser}/node_todo_app_cicd:latest"
+                sh "docker push ${env.dockerHubUser}/node-todo-app-cicd:v1"
                 }
             }
         }
