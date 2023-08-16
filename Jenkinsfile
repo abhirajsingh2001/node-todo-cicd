@@ -17,12 +17,13 @@ pipeline {
                  sh "docker tag node-app-test-new ${env.dockerHubUser}/node-todo-app-cicd-v1"
                 sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
                 sh "docker push ${env.dockerHubUser}/node-todo-app-cicd-v1"
+                sh "docker-compose down"
                 }
             }
         }
         stage("Deploy"){
             steps{
-                sh "docker-compose down && docker-compose up -d"
+                sh "docker-compose up -d"
             }
         }
     }
