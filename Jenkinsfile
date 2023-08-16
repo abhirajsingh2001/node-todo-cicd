@@ -14,7 +14,7 @@ pipeline {
         stage("Push to Docker Hub"){
             steps{
                 withCredentials([usernamePassword(credentialsId:"dockerHub",passwordVariable:"dockerHubPass",usernameVariable:"dockerHubUser")]){
-                 sh "docker tag node-app-cicd:v1 ${env.dockerHubUser}/node-todo-app-cicd:v1"
+                 sh "docker tag node-todo-app-cicd:v1 ${env.dockerHubUser}/node-todo-app-cicd:v1"
                 sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
                 sh "docker push ${env.dockerHubUser}/node-todo-app-cicd:v1"
                 
